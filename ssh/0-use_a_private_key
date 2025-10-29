@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Uses ~/.ssh/school key to connect to server
 
 USER="ubuntu"
 HOST="6928-web-01"
