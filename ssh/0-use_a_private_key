@@ -2,6 +2,5 @@
 
 USER="ubuntu"
 HOST="6928-web-01"
-PORT="22"
 
-ssh -p "$PORT" "$USER@$HOST"
+ssh -i "~/.ssh/school" "$USER@$HOST"
