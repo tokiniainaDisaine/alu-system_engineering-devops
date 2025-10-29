@@ -4,4 +4,4 @@
 USER="ubuntu"
 HOST="6928-web-01"
 
-ssh -i "~/.ssh/school" "$USER@$HOST"
+ssh -i ~/.ssh/school "$USER@$HOST"
