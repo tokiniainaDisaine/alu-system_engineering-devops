@@ -1,2 +1,4 @@
-#!/usr/bin/env bash
-# IDK
+# Configures the ssh client
+Host 3.87.214.45
+    IdentityFile ~/.ssh/school
+    PasswordAuthentication no
