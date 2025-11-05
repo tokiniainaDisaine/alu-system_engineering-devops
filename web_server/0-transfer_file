@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Honestly, I have now clue what this does, I just adapt to whatever ALU's intranet wants
 
 # Check for correct number of arguments
 if [ "$#" -ne 4 ]; then
