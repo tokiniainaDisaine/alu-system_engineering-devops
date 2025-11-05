@@ -13,4 +13,4 @@ USERNAME="$3"
 PATH_TO_SSH_KEY="$4"
 
 # Execute the scp command
-scp -i "$PATH_TO_SSH_KEY" "$USERNAME@$IP:/~/" "$PATH_TO_FILE"
+scp -i $PATH_TO_SSH_KEY $PATH_TO_FILE "$USERNAME@$IP:/~/"
