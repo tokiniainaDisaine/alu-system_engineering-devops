@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>404 — Page Not Found</title>
+    <meta
+      name="description"
+      content="The page you requested was not found (404)."
+    />
+    <style>
+      :root {
+        --bg: #0f1724;
+        --card: #0b1220;
+        --muted: #9aa6b2;
+        --accent: #7c5cff;
+        --accent-2: #5eead4;
+        --glass: rgba(255, 255, 255, 0.04);
+        --radius: 18px;
+        --max-width: 980px;
+        color-scheme: dark;
+      }
+
+      /* Reset-ish */
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+          Roboto, "Helvetica Neue", Arial;
+        background: radial-gradient(
+            1200px 600px at 10% 10%,
+            rgba(124, 92, 255, 0.12),
+            transparent 6%
+          ),
+          radial-gradient(
+            900px 400px at 90% 90%,
+            rgba(94, 234, 212, 0.08),
+            transparent 6%
+          ),
+          var(--bg);
+        color: #e6eef6;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 40px 20px;
+      }
+
+      .card {
+        width: 100%;
+        max-width: var(--max-width);
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.02),
+          rgba(255, 255, 255, 0.01)
+        );
+        border-radius: var(--radius);
+        padding: 36px;
+        box-shadow: 0 6px 30px rgba(2, 6, 23, 0.6),
+          inset 0 1px 0 rgba(255, 255, 255, 0.02);
+        display: grid;
+        grid-template-columns: 1fr 420px;
+        gap: 28px;
+        align-items: center;
+      }
+
+      @media (max-width: 900px) {
+        .card {
+          grid-template-columns: 1fr;
+          padding: 28px;
+        }
+      }
+
+      .left {
+        padding-right: 8px;
+      }
+
+      h1 {
+        margin: 0 0 8px 0;
+        font-size: 56px;
+        line-height: 1;
+        letter-spacing: -1px;
+        color: linear-gradient(90deg, var(--accent), var(--accent-2));
+      }
+
+      .eyebrow {
+        display: inline-block;
+        padding: 6px 10px;
+        background: var(--glass);
+        color: var(--muted);
+        border-radius: 999px;
+        font-size: 13px;
+        margin-bottom: 18px;
+      }
+
+      p.lead {
+        margin: 8px 0 20px 0;
+        color: var(--muted);
+        font-size: 18px;
+        max-width: 62ch;
+      }
+
+      .actions {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 16px;
+        border-radius: 12px;
+        font-weight: 600;
+        border: 0;
+        cursor: pointer;
+        text-decoration: none;
+        color: var(--bg);
+        background: linear-gradient(90deg, var(--accent), var(--accent-2));
+        box-shadow: 0 6px 18px rgba(92, 60, 255, 0.12),
+          0 2px 6px rgba(10, 10, 10, 0.6);
+        transform: translateZ(0);
+      }
+
+      .btn.ghost {
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        color: var(--muted);
+        font-weight: 600;
+        padding: 12px 14px;
+      }
+
+      .meta {
+        margin-top: 18px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      /* Right art */
+      .art {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+      }
+
+      .scene {
+        width: 100%;
+        max-width: 410px;
+        height: 300px;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.02),
+          transparent 50%
+        );
+        border-radius: 14px;
+        padding: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.02);
+      }
+
+      /* Rocket animation */
+      .rocket {
+        width: 160px;
+        height: 160px;
+        display: block;
+      }
+
+      .cloud {
+        position: absolute;
+        left: -10%;
+        top: 10%;
+        opacity: 0.06;
+        width: 420px;
+        height: 420px;
+        background: radial-gradient(
+          circle at 30% 30%,
+          rgba(255, 255, 255, 0.07),
+          transparent 30%
+        );
+        filter: blur(14px);
+        transform: rotate(15deg);
+      }
+
+      .stars {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+      }
+
+      .star {
+        fill: rgba(255, 255, 255, 0.08);
+      }
+
+      @media (prefers-reduced-motion: no-preference) {
+        .rocket {
+          animation: float 5s ease-in-out infinite;
+        }
+        .star {
+          animation: twinkle 3s linear infinite;
+        }
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0) rotate(-6deg);
+        }
+        50% {
+          transform: translateY(-14px) rotate(6deg);
+        }
+        100% {
+          transform: translateY(0) rotate(-6deg);
+        }
+      }
+      @keyframes twinkle {
+        0%,
+        100% {
+          opacity: 0.08;
+        }
+        50% {
+          opacity: 0.28;
+        }
+      }
+
+      /* small link styles */
+      .small-link {
+        color: var(--accent-2);
+        text-decoration: underline;
+        font-weight: 600;
+      }
+
+      /* Reduced motion override */
+      @media (prefers-reduced-motion: reduce) {
+        .rocket,
+        .star {
+          animation: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="card" role="main" aria-labelledby="title">
+      <section class="left">
+        <span class="eyebrow" aria-hidden="true">Error 404</span>
+        <h1 id="title">Page not found</h1>
+        <p class="lead">
+          We couldn't find the page you're looking for. It may have been moved,
+          renamed or never existed. If you think this is an error, try the
+          search or head back home.
+        </p>
+
+        <div class="actions" role="group" aria-label="404 actions">
+          <a class="btn" href="/" aria-label="Go to home page">
+            <!-- Home icon -->
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M3 11.5L12 4l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1V11.5z"
+                fill="#071020"
+              />
+            </svg>
+            Home
+          </a>
+
+          <a
+            class="btn ghost"
+            href="javascript:history.back()"
+            aria-label="Go back to previous page"
+            >Go back</a
+          >
+
+          <a class="btn ghost" href="/search" aria-label="Search the site"
+            >Search</a
+          >
+        </div>
+
+        <div class="meta">
+          Tip: Press <kbd>Ctrl</kbd> + <kbd>F</kbd> to search this page, or try
+          visiting the <a class="small-link" href="/sitemap.xml">sitemap</a>.
+        </div>
+      </section>
+
+      <aside class="art" aria-hidden="true">
+        <div
+          class="scene"
+          role="img"
+          aria-label="Illustration of a little rocket searching for the page"
+        >
+          <div class="cloud"></div>
+          <svg
+            class="rocket"
+            viewBox="0 0 512 512"
+            xmlns="http://www.w3.org/2000/svg"
+            role="presentation"
+          >
+            <defs>
+              <linearGradient id="g1" x1="0" x2="1">
+                <stop offset="0" stop-color="#7C5CFF" />
+                <stop offset="1" stop-color="#5EEAD4" />
+              </linearGradient>
+            </defs>
+            <g>
+              <path
+                d="M256 32c-16 0-48 16-96 64s-64 80-64 96c0 0 64 32 128 32s128-32 128-32c0-16-16-48-64-96S272 32 256 32z"
+                fill="url(#g1)"
+                opacity="0.95"
+              />
+              <path
+                d="M160 320c0 0-8 56-40 88 32 32 88 40 88 40s8-56 40-88c-32-32-88-40-88-40z"
+                fill="#FFD67A"
+                opacity="0.9"
+              />
+              <circle cx="196" cy="240" r="44" fill="#071020" opacity="0.85" />
+              <g class="stars" fill="#fff">
+                <circle class="star" cx="36" cy="36" r="2" />
+                <circle class="star" cx="76" cy="16" r="1.6" />
+                <circle class="star" cx="320" cy="40" r="2.2" />
+                <circle class="star" cx="360" cy="90" r="1.6" />
+              </g>
+            </g>
+          </svg>
+        </div>
+      </aside>
+    </main>
+
+    <script>
+      // Small progressive enhancement: focus the main heading so keyboard users land on it
+      (function () {
+        try {
+          document.getElementById("title").setAttribute("tabindex", "-1");
+          document.getElementById("title").focus();
+        } catch (e) {}
+      })();
+    </script>
+  </body>
+</html>
