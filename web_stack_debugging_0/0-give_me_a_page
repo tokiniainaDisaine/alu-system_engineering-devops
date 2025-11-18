@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 # I don't know :(
 
-docker stop 47ca3994a491
-docker rm 47ca3994a491
-
-docker run -d -p 8080:8080 --name vigilant_tesla holbertonschool/265-0
-
+service apache2 start
+echo "Hello Holberton" > /var/www/html/index.html
