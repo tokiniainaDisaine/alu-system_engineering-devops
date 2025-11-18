@@ -2,4 +2,4 @@
 # sdfghh
 ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 echo "2" > /var/www/html/index.html
-nginx -t
+sudo systemctl reload nginx
