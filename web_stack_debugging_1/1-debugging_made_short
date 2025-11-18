@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+mkdir -p /var/www/html
+echo "2" > /var/www/html/index.html
+nginx -t
